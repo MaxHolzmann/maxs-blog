@@ -1,5 +1,5 @@
 # Maximilian's Blog
-A full stack blog application utlizing MySQL / Sequelize, Express, NodeJS and Handlebars.
+An assignment from University of Minnesota's Full Stack Coding Bootcamp, this project is a full stack blog application utlizing MySQL / Sequelize, Express, NodeJS and Handlebars.
 
 ## Usage
 Sign Up and login to utilize all of the website's available features, such as posting new blog posts and posting comments on blog posts.
