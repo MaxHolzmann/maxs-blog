@@ -41,16 +41,17 @@ sequelize.sync({ force: false }).then(() => {
 
 /* 
 To Do:
-
 Format things nicely
-
-Deploy to Heroku
 
 add comments to code
 */
 
 /* 
 Ideas to expand on project:
+fix some replacements when doing certain actions
+list: posting comments
+
+add a seperate page and text editor for creating blog posts
 take user to new blog post when they post a new blog post document.location.replace
 allow poster of comment to delete comments
 add login link to blogs when logged out so user can comment

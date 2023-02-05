@@ -1,6 +1,8 @@
 <div>
     {{#each blogs as |blog| }}
-    <h1><a href="/blog/{{{blog.id}}}">{{{blog.title}}}</a></h1>
-    <h2>{{blog.body}}</h2>
+    <div class="p-5 m-5 bg-light text-center rounded-3">
+    <h1 class="display-5"><a class="text-decoration-none" href="/blog/{{{blog.id}}}">{{{blog.title}}}</a></h1>
+    <p class="fs-2">{{blog.body}}</p>
+    </div>
     {{/each}}
 </div>

@@ -1,14 +1,15 @@
 {{#if loggedIn}}
 {{#if blogIsUsers}}
-<div id="container" data-id="{{blog.id}}" class="container">
-<div class="col justify-content-center">
+<h1 class="display-2 text-center mt-2">Edit Your Post</h1>
+<div id="container" data-id="{{blog.id}}" class="container bg-light mt-5 p-4">
+<div class="col text-center">
     <form id="edit-blog">
-    <h2>Blog Title</h2>
-    <input type="text"  id="blog-title" value="{{blog.title}}">
-    <h2>Blog Body</h2>
-    <textarea id="blog-body" cols="30" rows="10">{{blog.body}}</textarea>
+    <p class="fs-1">Blog Title</p>
+    <input class="form-control" type="text"  id="blog-title" value="{{blog.title}}">
+    <p class="fs-1">Blog Body</p>
+    <textarea class="form-control" id="blog-body" cols="30" rows="10">{{blog.body}}</textarea>
     <div></div>
-    <button type="submit">Update</button>
+    <button class="btn btn-primary fs-2 ps-4 pe-4 m-3" type="submit">Update</button>
     </form>
 </div>
 </div>
