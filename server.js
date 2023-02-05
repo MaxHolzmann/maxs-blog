@@ -51,7 +51,6 @@ add comments to code
 
 /* 
 Ideas to expand on project:
-
 take user to new blog post when they post a new blog post document.location.replace
 allow poster of comment to delete comments
 add login link to blogs when logged out so user can comment
