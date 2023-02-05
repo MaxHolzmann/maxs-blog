@@ -73,7 +73,12 @@ router.put('/:id', async (req, res) => {
 //delete an existing blog post
 router.delete('/:id', async (req, res) => {
     try {
-
+        await BlogPost.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.status(200).json({message: "Deleted blog!"})
     } catch (err) {
         res.status(500).json(err)
     }

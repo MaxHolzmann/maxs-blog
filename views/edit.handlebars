@@ -1,5 +1,6 @@
 {{#if loggedIn}}
-<div class="container">
+{{#if blogIsUsers}}
+<div id="container" data-id="{{blog.id}}" class="container">
 <div class="col justify-content-center">
     <form id="edit-blog">
     <h2>Blog Title</h2>
@@ -11,4 +12,6 @@
     </form>
 </div>
 </div>
+<script src="../js/edit.js"></script>
+{{/if}}
 {{/if}}

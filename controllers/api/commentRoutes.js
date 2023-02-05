@@ -64,7 +64,6 @@ router.delete('/:id', async (req, res) => {
 //add withauth
 router.put('/:id', async (req, res) => {
     try {
-
     } catch (err) {
         res.status(500).json(err)
     }

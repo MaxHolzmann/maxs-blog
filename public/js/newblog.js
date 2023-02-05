@@ -1,5 +1,4 @@
 const newBlogForm = document.querySelector('.new-blog-form')
-const editBtn = document.getElementById('edit-btn')
 
 const newBlogHandle = async (e) => {
     e.preventDefault();
@@ -28,13 +27,15 @@ const newBlogHandle = async (e) => {
 
 const goToEdit = (e) => {
     e.preventDefault();
-
+    console.log('click')
     const blogId = Number(e.target.parentNode.dataset.blogid)
-
     document.location.replace('/edit/' + blogId)
-
 }
 
-editBtn.addEventListener('click', goToEdit);
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll("#edit-btn").forEach(el => {
+        el.addEventListener('click', goToEdit);
+    });
+});
 
 newBlogForm.addEventListener('submit', newBlogHandle)

@@ -28,6 +28,11 @@ Comment.init({
     comment_body: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+        defaultValue: DataTypes.NOW
     }
 }, {
     sequelize,

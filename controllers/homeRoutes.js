@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../models');
+const withAuth = require('../utils/withAuth');
 
 router.get('/', async (req, res) => {
     res.render('homepage', {
@@ -54,14 +55,19 @@ router.get('/blog/:id', async (req, res) => {
         } catch (err) {
             res.status(500).json(err)
         }
-        res.render('singleblog', {blog, allCommentUsers, loggedIn: req.session.loggedIn})
+
+            let posterName = await User.findByPk(blog.blog_user_id)
+            const username = posterName.username
+
+
+      res.render('singleblog', {blog, allCommentUsers, loggedIn: req.session.loggedIn, userId: req.session.userId, username: username})
 
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         console.log(req.session.userId)
         const usersBlogs = await BlogPost.findAll({
@@ -93,7 +99,9 @@ router.get('/edit/:id', async (req, res) => {
       
       const editingBlog = editBlog.dataValues;
 
-      res.render('edit', {blog: editingBlog, userId: req.session.userId, loggedIn: req.session.loggedIn})
+     const blogIsUsers = editingBlog.blog_user_id === req.session.userId
+
+      res.render('edit', {blogIsUsers: blogIsUsers, blog: editingBlog, userId: req.session.userId, loggedIn: req.session.loggedIn})
 
     } catch (err) {
         res.status(500).json(err)
