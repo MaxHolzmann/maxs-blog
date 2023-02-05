@@ -1,7 +1,8 @@
 # Maximilian's Blog
 A full stack blog application utlizing MySQL / Sequelize, Express, NodeJS and Handlebars.
 
-Sign Up and login to utilize all of the features available, such as posting new blog posts, posting comments, etc.
+## Usage
+Sign Up and login to utilize all of the website's available features, such as posting new blog posts and posting comments on blog posts.
 
 ## Deployment
 https://max-blog.herokuapp.com/
