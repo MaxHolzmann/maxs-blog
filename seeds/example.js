@@ -46,7 +46,8 @@ const exampleComment =
     {
         id: 1,
         comment_body: 'Ayyy this blog is good!',
-        blog_id: 1
+        blog_id: 1,
+        comment_user: 1
     }
 
 

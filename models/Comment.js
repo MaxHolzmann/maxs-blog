@@ -18,6 +18,13 @@ Comment.init({
             key: 'id'
         }
     },
+    comment_user: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id'
+        }
+    },
     comment_body: {
         type: DataTypes.STRING,
         allowNull: false

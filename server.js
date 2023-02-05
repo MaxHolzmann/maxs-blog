@@ -1,9 +1,11 @@
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const routes = require('./controllers');
-
-const sequelize = require('./config/connection');
+const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const routes = require('./controllers');
+const sequelize = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,16 +16,22 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
 
+const hbs = exphbs.create();
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening on port ' + PORT));
@@ -32,25 +40,16 @@ sequelize.sync({ force: false }).then(() => {
 /* 
 Personal To Do:
 
-Bootstrap with Handlebars Set up 
+Finish editing functionality
 
-Models:
-User - ID, Username, Email, Password
-Blog Post Model - ID, Blog Title, Content, Comments
-Comment Model - ID, Username, Content, Blog ID
+Format things nicely
 
-Routes:
-User:
-Post with Login / Logout
+Leaving comments on posts
 
-Blog Posts:
-get to display posts
-Post to Post blog posts
-Delete to delete blog posts
+Displaying username of blog poster
 
-Comments:
-get to display comments
-post to post comments
+Deploy to Heroku
+
 
 */
 

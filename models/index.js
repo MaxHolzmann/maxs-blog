@@ -11,6 +11,14 @@ User.hasMany(BlogPost, {
     onDelete: 'CASCADE'
 })
 
+User.hasMany(Comment, {
+    foreignKey: 'comment_user'
+})
+
+Comment.belongsTo(User, {
+    foreignKey: 'comment_user'
+})
+
 Comment.belongsTo(BlogPost, {
     foreignKey: 'blog_id'
 })

@@ -1,0 +1,30 @@
+{{#if loggedIn}}
+<div id="userId" data-user="{{userId}}"></div>
+<div class="container">
+<div class="row">
+
+<div class="col-9">
+<h1>Write New Blog</h1>
+<h3>Blog Title</h3>
+<form class="new-blog-form">
+<input type="text" id="blog-title" placeholder="Blog Title">
+<h3>Blog Body</h3>
+<textarea id="blog-body" cols="30" rows="10" placeholder="Blog Body"></textarea>
+<div>
+<button type="submit" id="blog-post-btn">Post</button>
+</div>
+</form>
+</div>
+
+<div class="col-3">
+    {{#each usersBlogs as |blog|}}
+    <div data-blogid="{{{blog.id}}}">
+    <h3>{{{blog.title}}}</h3>
+    <button id="edit-btn">Edit</button>
+    </div>
+    {{/each}}
+</div>
+</div>
+</div>
+<script src="./js/newblog.js"></script>
+{{/if}}

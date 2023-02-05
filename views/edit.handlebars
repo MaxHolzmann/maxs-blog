@@ -1,0 +1,14 @@
+{{#if loggedIn}}
+<div class="container">
+<div class="col justify-content-center">
+    <form id="edit-blog">
+    <h2>Blog Title</h2>
+    <input type="text"  id="blog-title" value="{{blog.title}}">
+    <h2>Blog Body</h2>
+    <textarea id="blog-body" cols="30" rows="10">{{blog.body}}</textarea>
+    <div></div>
+    <button type="submit">Update</button>
+    </form>
+</div>
+</div>
+{{/if}}
